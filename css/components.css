@@ -1,13 +1,13 @@
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    padding: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
 }
 
 .card {
     background: var(--white);
-    border-radius: 32px;
+    border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -15,117 +15,77 @@
 }
 
 .card:hover {
-    transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    transform: translateY(-10px);
 }
 
 .card-img-wrapper {
     position: relative;
-    height: 300px;
-    overflow: hidden;
-}
-
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1s ease;
-}
-
-.card:hover .card-img {
-    transform: scale(1.15);
+    height: 200px;
 }
 
 .card-content {
-    padding: 2.5rem;
-}
-
-.card-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--primary-light);
-    color: var(--white);
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
+    padding: 1.5rem;
 }
 
 .card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
     color: var(--primary-dark);
-}
-
-.card p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
 }
 
 .btn-modern {
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    padding: 1rem 2.5rem;
+    padding: 0.8rem 1.8rem;
     background: var(--primary);
     color: var(--white);
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
-}
-
-.btn-modern:hover {
-    background: var(--primary-dark);
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
 }
 
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .gallery-item {
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
-    height: 300px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
+    height: 250px;
 }
 
 .big-text {
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
     line-height: 1.4;
     color: var(--text-main);
-    font-weight: 300;
-    margin-bottom: 3rem;
 }
 
-.accent-text {
-    color: var(--primary);
-    font-weight: 800;
-}
+/* RESPONSIVE COMPONENTS */
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
+    .gallery-item {
+        height: 200px;
+    }
 
-.floating {
-    animation: float 4s ease-in-out infinite;
+    /* Page-specific grid in Innovacion and others */
+    main > section > div {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    /* Fixing inline grid styles in the HTML */
+    .content-section > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
 }
